@@ -18,14 +18,14 @@ def test_create_row():
     delete_by_id(id=11)
     assert row
 
-# #
-# def test_accomodation_delete():
-#     preparing()
-#     result_before = select_all()
-#     delete_by_id(id=11)
-#     result_after = select_all()
-#     delete_by_id(id=11)
-#     assert len(result_before) != len(result_after)
+#
+def test_accomodation_delete():
+    preparing()
+    result_before = select_all()
+    delete_by_id(id=11)
+    result_after = select_all()
+    delete_by_id(id=11)
+    assert len(result_before) != len(result_after)
 # #
 # # #
 # def test_accomodation_update():
