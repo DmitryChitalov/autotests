@@ -25,6 +25,13 @@ jobs:
           pytest --alluredir=allure-results
         continue-on-error: true # Чтобы сгенерировать отчет даже при падении тестов
 
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results
+
       - name: Get Allure history
         uses: actions/checkout@v3
         if: always()
@@ -32,6 +39,12 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
+
+      - name: Download Allure results
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results
 
       - name: Allure Report
         uses: simple-elf/allure-report-action@master
